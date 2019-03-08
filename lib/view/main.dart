@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:themeal/model/meals.dart';
+import 'package:themeal/model/ingredients.dart';
+import 'package:themeal/view/detail.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert'; //json
 
@@ -66,14 +67,14 @@ class _IngredientsPageState extends State<IngredientsPage> {
             padding: new EdgeInsets.all(10.0),
             child: new Text("${ingredients[i].strIngredient}")
         ),
-//        onTap: () {
-//          Navigator.push(
-//              context,
-//              MaterialPageRoute(
-//                  builder: (context) => MovieDetailPage(movie: movies[i])
-//              )
-//          );
-//        }
+        onTap: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => IngredientsDetailPage(ingredients: ingredients[i])
+              )
+          );
+        }
     );
   }
 
