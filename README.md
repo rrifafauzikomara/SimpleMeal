@@ -1,4 +1,4 @@
-# themeal
+# The Meals
 
 A new Flutter application.
 
