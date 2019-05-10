@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:themeal/model/ingredients.dart';
 
 class IngredientsDetailPage extends StatelessWidget {
-  Ingredients ingredients;
+  final Ingredients ingredients;
 
   // In the constructor, require a Movie
   IngredientsDetailPage({Key key, @required this.ingredients}) : super(key: key);

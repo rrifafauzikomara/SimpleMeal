@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:themeal/model/ingredients.dart';
-import 'package:themeal/view/detail.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert'; //json
+import 'package:themeal/model/ingredients.dart';
+import 'package:themeal/view/detail.dart';
 
 void main() => runApp(new MyApp());
 
@@ -35,7 +35,8 @@ class _IngredientsPageState extends State<IngredientsPage> {
   @override
   void initState() {
     super.initState();
-    loadData();
+    // loadData();
+    fetchPost();
   }
 
   @override
@@ -56,10 +57,10 @@ class _IngredientsPageState extends State<IngredientsPage> {
   }
 
   ListView getListView() => new ListView.builder(
-      itemCount: ingredients.length,
-      itemBuilder: (BuildContext context, int position) {
-        return getRow(position);
-      });
+    itemCount: ingredients.length,
+    itemBuilder: (BuildContext context, int position) {
+      return getRow(position);
+  });
 
   Widget getRow(int i) {
     return new GestureDetector(
@@ -78,17 +79,29 @@ class _IngredientsPageState extends State<IngredientsPage> {
     );
   }
 
-  loadData() async {
-    String dataURL = "https://www.themealdb.com/api/json/v1/1/list.php?i=list";
-    http.Response response = await http.get(dataURL);
+  // loadData() async {
+  //   String dataURL = "https://www.themealdb.com/api/json/v1/1/list.php?i=list";
+  //   http.Response response = await http.get(dataURL);
+  //   var responseJson = json.decode(response.body);
+  //   if (response.statusCode == 200) {
+  //     setState(() {
+  //       ingredients =  (responseJson['meals'] as List).map((p) => Ingredients.fromJson(p)).toList();
+  //     });
+  //   } else {
+  //     throw Exception('Gagal mendapatkan ingredients');
+  //   }
+  // }
+
+  Future<Ingredients> fetchPost() async {
+    final response = await http.get('https://www.themealdb.com/api/json/v1/1/list.php?i=list');
     var responseJson = json.decode(response.body);
     if (response.statusCode == 200) {
       setState(() {
         ingredients =  (responseJson['meals'] as List).map((p) => Ingredients.fromJson(p)).toList();
       });
     } else {
-      throw Exception('Failed to load photos');
+      throw Exception('Gagal mendapatkan ingredients');
     }
-
   }
+
 }
