@@ -18,7 +18,6 @@ class MyApp extends StatelessWidget {
   }
 }
 
-// Home page class
 class IngredientsPage extends StatefulWidget {
 
   IngredientsPage({Key key}) : super(key: key);
