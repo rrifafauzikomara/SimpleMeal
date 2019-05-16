@@ -10,4 +10,14 @@ class Ingredients {
         json['strIngredient']
     );
   }
+
+  Map<String, dynamic> toJson() {
+    return {"strIngredient": strIngredient, "idIngredient": idIngredient};
+  }
+
+  @override
+  String toString() {
+    return 'Ingredients{strIngredient: $strIngredient, idMeal: $idIngredient}';
+  }
+
 }
