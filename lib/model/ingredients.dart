@@ -1,4 +1,5 @@
 class Ingredients {
+
   final String idIngredient;
   final String strIngredient;
 
@@ -19,5 +20,4 @@ class Ingredients {
   String toString() {
     return 'Ingredients{strIngredient: $strIngredient, idMeal: $idIngredient}';
   }
-
 }

@@ -3,7 +3,6 @@ import 'package:themeal/view/list_ingredients.dart';
 
 void main() => runApp(new MyApp());
 
-// App root class
 class MyApp extends StatelessWidget {
 
   @override

@@ -1,14 +1,14 @@
 import 'dart:convert';
 import 'package:themeal/model/ingredients.dart';
 
-class ResponsModel {
+class ResponseModel {
+  
   List<Ingredients> ingredients;
 
-  ResponsModel({this.ingredients});
+  ResponseModel({this.ingredients});
 
-  factory ResponsModel.fromJson(Map<String, dynamic> json) {
-    return ResponsModel(
-      ingredients: List<Ingredients>.from(
+  factory ResponseModel.fromJson(Map<String, dynamic> json) {
+    return ResponseModel(ingredients: List<Ingredients>.from(
         json["meals"].map((meal) {
           return Ingredients.fromJson(meal);
         }),
@@ -18,8 +18,7 @@ class ResponsModel {
 
   Map<String, dynamic> toJson() {
     return {
-      "meals": List<Ingredients>.from(
-        ingredients.map((meal) {
+      "meals": List<Ingredients>.from(ingredients.map((meal) {
           return meal.toJson();
         }),
       )
@@ -32,12 +31,12 @@ class ResponsModel {
   }
 }
 
-ResponsModel foodFromJson(String str) {
+ResponseModel foodFromJson(String str) {
   final data = json.decode(str);
-  return ResponsModel.fromJson(data);
+  return ResponseModel.fromJson(data);
 }
 
-String foodToJson(ResponsModel food) {
+String foodToJson(ResponseModel food) {
   final dyn = food.toJson();
   return json.encode(dyn);
 }

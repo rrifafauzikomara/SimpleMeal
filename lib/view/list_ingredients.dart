@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:themeal/model/ingredients.dart';
-import 'package:themeal/model/respons_model.dart';
+import 'package:themeal/model/response_model.dart';
 import 'package:themeal/api/food_api_service.dart';
 import 'package:themeal/view/detail.dart';
 import 'package:http/http.dart' as http;
@@ -11,9 +11,9 @@ class IngredientsPage extends StatefulWidget {
 }
 
 class _IngredientsPageState extends State<IngredientsPage> {
-  final List<ResponsModel> _foods = List();
 
-  Future<ResponsModel> futureFood;
+  final List<ResponseModel> _foods = List();
+  Future<ResponseModel> futureFood;
   IngredientsService _ingredientsService = IngredientsService();
 
   @override
@@ -47,11 +47,11 @@ class _IngredientsPageState extends State<IngredientsPage> {
               child: Text("Something wrong"),
             );
           } else if (snapshot.connectionState == ConnectionState.done) {
-            ResponsModel responsModel = snapshot.data as ResponsModel;
+            ResponseModel responseModel = snapshot.data as ResponseModel;
             return ListView.builder(
-                itemCount: responsModel.ingredients.length,
+                itemCount: responseModel.ingredients.length,
                 itemBuilder: (BuildContext context, int index) {
-                  Ingredients ingredient = responsModel.ingredients[index];
+                  Ingredients ingredient = responseModel.ingredients[index];
                   return GestureDetector(
                       child: new Padding(
                           padding: new EdgeInsets.all(10.0),
