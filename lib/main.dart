@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:themeal/view/list.dart';
+import 'package:themeal/view/list_ingredients.dart';
 
 void main() => runApp(new MyApp());
 
