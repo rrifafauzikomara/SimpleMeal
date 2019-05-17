@@ -53,9 +53,9 @@ class _IngredientsPageState extends State<IngredientsPage> {
                 itemBuilder: (BuildContext context, int index) {
                   Ingredients ingredient = responseModel.ingredients[index];
                   return GestureDetector(
-                      child: new Padding(
-                          padding: new EdgeInsets.all(10.0),
-                          child: new Text(ingredient.strIngredient)
+                      child: Padding(
+                          padding: EdgeInsets.all(10.0),
+                          child: Text(ingredient.strIngredient)
                       ),
                       onTap: () {
                         Navigator.push(

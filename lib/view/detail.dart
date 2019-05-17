@@ -18,7 +18,7 @@ class IngredientsDetailPage extends StatelessWidget {
   }
 
   getBody(){
-    return new ListView(
+    return ListView(
       children: <Widget>[
         Container(
           padding: const EdgeInsets.all(32.0),
